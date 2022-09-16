@@ -1,4 +1,4 @@
-# Laravel 9
+# Blog-api
 
 Está aplicação utiliza o Docker containers, eis a lista:
 
@@ -11,9 +11,8 @@ Está aplicação utiliza o Docker containers, eis a lista:
 
 Clone o repositório do github e mude de diretório de trabalho
 
-    git clone https://github.com/lourdilene/squadra.git
-    cd squadra
-    cp docker-compose.dist.yml docker-compose.yml
+    git clone https://github.com/lourdilene/blog-api.git
+    cd blog-api    
 
 Dentro de `docker-compose.yml` você precisa alterar os valores para o que você precisa.
 
@@ -25,7 +24,7 @@ Execute o seguinte comandando para criar os containers
 
 Acesse o container laravel:
 
-    docker-compose exec laravel bash
+    docker-compose exec -it blog-api-laravel.test-1 bash
 
 Instale todas as dependências
 
@@ -35,16 +34,18 @@ Instale todas as dependências
 
 Crie as databases
 
-    php artisan migrate:fresh --seed
+    php artisan migrate
 
-### 4. Generate swagger
+### 4. EndPoint Post
 
-Gere a documentação da app:
+Método Store
+http://localhost/api/post
 
-    php artisan l5-swagger:generate
+    {
+        "title": "Titulo do Post",
+        "body": "Conteúdo do Post"
+    }
 
 ## Fim
-
-Agora é só clicar nesse link [http://localhost/api/documentation](http://localhost/api/documentation) em seu navegador.
 
 Obrigada :)
